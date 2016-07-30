@@ -1,12 +1,24 @@
-﻿using System;
-
-namespace Poker
+﻿namespace Poker
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+
     public class PokerHandsChecker : IPokerHandsChecker
     {
         public bool IsValidHand(IHand hand)
         {
-            throw new NotImplementedException();
+            if (hand.Cards.Count != 5)
+            {
+                return false;
+            }
+
+            if (hand.Cards.Count != hand.Cards.Distinct().ToList().Count)
+            {
+                return false;
+            }
+
+            return true;
         }
 
         public bool IsStraightFlush(IHand hand)

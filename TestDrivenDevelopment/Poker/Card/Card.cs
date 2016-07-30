@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Poker
 {
@@ -30,6 +32,28 @@ namespace Poker
         public override string ToString()
         {
             return $"{this.Face} of {this.Suit}";
+        }
+
+        public override bool Equals(object obj)
+        {
+            Card x = obj as Card;
+            if(this.Face == x.Face && this.Suit == x.Suit)
+            {
+                return true;
+            }
+
+            return false;
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                int h = 17;
+                h = h * 23 + this.Face.GetHashCode();
+                h = h * 23 + this.Suit.GetHashCode();
+                return h;
+            }
         }
     }
 }
