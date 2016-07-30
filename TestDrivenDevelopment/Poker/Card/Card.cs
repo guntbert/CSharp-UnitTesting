@@ -29,7 +29,7 @@ namespace Poker
 
         public override string ToString()
         {
-            return $"Card Face: {this.Face} ; Card Suit: {this.Suit}";
+            return $"{this.Face} of {this.Suit}";
         }
     }
 }

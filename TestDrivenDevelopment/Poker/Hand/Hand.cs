@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-
-namespace Poker
+﻿namespace Poker
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
     public class Hand : IHand
     {
         public IList<ICard> Cards { get; private set; }
@@ -14,7 +15,24 @@ namespace Poker
 
         public override string ToString()
         {
-            throw new NotImplementedException();
+            StringBuilder builder = new StringBuilder();
+
+            if(this.Cards.Count > 0)
+            {
+                int cardPosition = 1;
+                builder.AppendLine("Your hand contains: ");
+                foreach (ICard card in Cards)
+                {
+                    builder.AppendLine(cardPosition + " " + card.ToString());
+                    cardPosition++;
+                }
+
+                return builder.ToString();
+            }
+            else
+            {
+                return "Your hand is empty.";
+            }
         }
     }
 }

@@ -24,7 +24,7 @@
         {
             Card card = new Card(face, suit);
             string result = card.ToString();
-            string expectedResult = $"Card Face: {face} ; Card Suit: {suit}";
+            string expectedResult = $"{face} of {suit}";
             Assert.AreEqual(expectedResult, result);
         }
     }
