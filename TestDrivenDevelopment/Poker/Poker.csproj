@@ -40,15 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Card.cs" />
-    <Compile Include="CardFace.cs" />
-    <Compile Include="CardSuit.cs" />
-    <Compile Include="Hand.cs" />
-    <Compile Include="ICard.cs" />
-    <Compile Include="IHand.cs" />
-    <Compile Include="IPokerHandsChecker.cs" />
+    <Compile Include="Card\Card.cs" />
+    <Compile Include="Card\CardFace.cs" />
+    <Compile Include="Card\CardSuit.cs" />
+    <Compile Include="Hand\Hand.cs" />
+    <Compile Include="Interfaces\ICard.cs" />
+    <Compile Include="Interfaces\IHand.cs" />
+    <Compile Include="Interfaces\IPokerHandsChecker.cs" />
     <Compile Include="PokerExample.cs" />
-    <Compile Include="PokerHandsChecker.cs" />
+    <Compile Include="Validations\PokerHandsChecker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
