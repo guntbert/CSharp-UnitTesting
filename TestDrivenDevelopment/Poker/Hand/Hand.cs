@@ -1,27 +1,26 @@
 ﻿namespace Poker
 {
-    using System;
     using System.Collections.Generic;
     using System.Text;
 
     public class Hand : IHand
     {
-        public IList<ICard> Cards { get; private set; }
-
         public Hand(IList<ICard> cards)
         {
             this.Cards = cards;
         }
 
+        public IList<ICard> Cards { get; private set; }
+
         public override string ToString()
         {
             StringBuilder builder = new StringBuilder();
 
-            if(this.Cards.Count > 0)
+            if (this.Cards.Count > 0)
             {
                 int cardPosition = 1;
                 builder.AppendLine("Your hand contains: ");
-                foreach (ICard card in Cards)
+                foreach (ICard card in this.Cards)
                 {
                     builder.AppendLine(cardPosition + " " + card.ToString());
                     cardPosition++;

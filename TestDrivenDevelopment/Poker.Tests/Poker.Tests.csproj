@@ -84,11 +84,12 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="CardTests.cs" />
-    <Compile Include="PokerHandsCheckerIsFlush.cs" />
+    <Compile Include="PokerLogicTests\CardTests.cs" />
+    <Compile Include="PokerHandsCheckerTests\PokerHandsCheckerIsFlush.cs" />
+    <Compile Include="PokerHandsCheckerTests\PokerHandsCheckerIsFourOfAKind.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="HandTests.cs" />
-    <Compile Include="PokerHandsCheckerIsValid.cs" />
+    <Compile Include="PokerLogicTests\HandTests.cs" />
+    <Compile Include="PokerHandsCheckerTests\PokerHandsCheckerIsValid.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

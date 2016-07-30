@@ -28,7 +28,19 @@
 
         public bool IsFourOfAKind(IHand hand)
         {
-            throw new NotImplementedException();
+            if (hand.Cards.Select(x => x.Face).ToList().Distinct().ToList().Count() == 2)
+            {
+                List<ICard> ordered = hand.Cards.OrderBy(x => x.Face).ToList();
+                if (ordered[0].Face == ordered[3].Face ||
+                    ordered[1].Face == ordered[4].Face)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+
+            return false;
         }
 
         public bool IsFullHouse(IHand hand)
@@ -42,7 +54,7 @@
 
             for (int i = 1; i < hand.Cards.Count - 1; i++)
             {
-                if(hand.Cards[i].Suit != suit)
+                if (hand.Cards[i].Suit != suit)
                 {
                     return false;
                 }

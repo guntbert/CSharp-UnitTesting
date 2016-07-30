@@ -1,6 +1,5 @@
 ﻿namespace Poker.Tests
 {
-    using Poker;
     using System;
     using NUnit.Framework;
 

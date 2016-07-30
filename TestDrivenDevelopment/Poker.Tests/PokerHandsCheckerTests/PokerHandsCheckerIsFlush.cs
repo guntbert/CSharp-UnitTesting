@@ -1,7 +1,7 @@
-﻿namespace Poker.Tests
+﻿namespace Poker.Tests.HandsChecker
 {
-    using NUnit.Framework;
     using System.Collections.Generic;
+    using NUnit.Framework;
     
     [TestFixture]
     public class PokerHandsCheckerIsFlush
