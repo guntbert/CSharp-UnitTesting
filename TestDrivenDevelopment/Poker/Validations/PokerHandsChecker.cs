@@ -38,7 +38,17 @@
 
         public bool IsFlush(IHand hand)
         {
-            throw new NotImplementedException();
+            var suit = hand.Cards[0].Suit;
+
+            for (int i = 1; i < hand.Cards.Count - 1; i++)
+            {
+                if(hand.Cards[i].Suit != suit)
+                {
+                    return false;
+                }
+            }
+
+            return true;
         }
 
         public bool IsStraight(IHand hand)

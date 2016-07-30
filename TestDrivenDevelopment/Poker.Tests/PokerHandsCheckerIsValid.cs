@@ -1,11 +1,10 @@
 ﻿namespace Poker.Tests
 {
     using NUnit.Framework;
-    using System;
     using System.Collections.Generic;
 
     [TestFixture]
-    public class PokerHandsCheckerTests
+    public class PokerHandsCheckerIsValid
     {
         [Test]
         public void IsValidHand_ReturnsTrue_AllCardsAreDifferent()

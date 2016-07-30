@@ -85,9 +85,10 @@
   </Choose>
   <ItemGroup>
     <Compile Include="CardTests.cs" />
+    <Compile Include="PokerHandsCheckerIsFlush.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="HandTests.cs" />
-    <Compile Include="PokerHandsCheckerTests.cs" />
+    <Compile Include="PokerHandsCheckerIsValid.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
