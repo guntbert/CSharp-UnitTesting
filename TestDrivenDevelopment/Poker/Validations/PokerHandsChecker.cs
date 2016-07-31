@@ -28,16 +28,19 @@
 
         public bool IsFourOfAKind(IHand hand)
         {
-            if (hand.Cards.Select(x => x.Face).ToList().Distinct().ToList().Count() == 2)
+            if (this.IsValidHand(hand))
             {
-                List<ICard> ordered = hand.Cards.OrderBy(x => x.Face).ToList();
-                if (ordered[0].Face == ordered[3].Face ||
-                    ordered[1].Face == ordered[4].Face)
+                if (hand.Cards.Select(x => x.Face).ToList().Distinct().ToList().Count() == 2)
                 {
-                    return true;
-                }
+                    List<ICard> ordered = hand.Cards.OrderBy(x => x.Face).ToList();
+                    if (ordered[0].Face == ordered[3].Face ||
+                        ordered[1].Face == ordered[4].Face)
+                    {
+                        return true;
+                    }
 
-                return false;
+                    return false;
+                }
             }
 
             return false;
@@ -50,13 +53,16 @@
 
         public bool IsFlush(IHand hand)
         {
-            var suit = hand.Cards[0].Suit;
-
-            for (int i = 1; i < hand.Cards.Count - 1; i++)
+            if (this.IsValidHand(hand))
             {
-                if (hand.Cards[i].Suit != suit)
+                var suit = hand.Cards[0].Suit;
+
+                for (int i = 1; i < hand.Cards.Count - 1; i++)
                 {
-                    return false;
+                    if (hand.Cards[i].Suit != suit)
+                    {
+                        return false;
+                    }
                 }
             }
 
@@ -70,22 +76,30 @@
 
         public bool IsThreeOfAKind(IHand hand)
         {
-            throw new NotImplementedException();
+            if (this.IsValidHand(hand))
+            {
+                int numberOfGroups = hand.Cards.GroupBy(x => x.Face).Count();
+                int maxItemsInGroup = hand.Cards.GroupBy(x => x.Face).Where(g => g.Count() > 2).Count();
+
+                if (numberOfGroups == 3 && maxItemsInGroup == 1)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+
+            return false;
         }
 
         public bool IsTwoPair(IHand hand)
         {
             if (this.IsValidHand(hand))
             {
-                HashSet<CardFace> set = new HashSet<CardFace>();
-                foreach (ICard card in hand.Cards)
-                {
-                    set.Add(card.Face);
-                }
+                byte numberOfGroups = (byte)(hand.Cards.GroupBy(x => x.Face).Count());
+                byte maxItemsInGroup = (byte)(hand.Cards.GroupBy(x => x.Face).Where(g => g.Count() > 2).Count());
 
-                int maxItemsInGroup = hand.Cards.GroupBy(x => x.Face).Where(g => g.Count() > 2).Count();
-
-                if (set.Count == 3 && maxItemsInGroup == 0)
+                if (numberOfGroups == 3 && maxItemsInGroup == 0)
                 {
                     return true;
                 }
