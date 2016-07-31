@@ -84,6 +84,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="PokerHandsCheckerTests\PokerHandsCheckerIsOnePair.cs" />
     <Compile Include="PokerLogicTests\CardTests.cs" />
     <Compile Include="PokerHandsCheckerTests\PokerHandsCheckerIsFlush.cs" />
     <Compile Include="PokerHandsCheckerTests\PokerHandsCheckerIsFourOfAKind.cs" />

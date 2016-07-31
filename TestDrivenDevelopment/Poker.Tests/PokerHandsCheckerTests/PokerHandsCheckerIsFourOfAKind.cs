@@ -26,6 +26,7 @@
         public void IsFourOfAKind_ReturnFalse_LessThanFourCardsHaveTheSameFace()
         {
             PokerHandsChecker checker = new PokerHandsChecker();
+
             IHand hand = new Hand(new List<ICard>()
             {
                 new Card(CardFace.Six, CardSuit.Hearts),

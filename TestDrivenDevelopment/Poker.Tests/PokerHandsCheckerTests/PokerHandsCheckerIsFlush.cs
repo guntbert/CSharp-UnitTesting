@@ -69,21 +69,5 @@
 
             Assert.IsFalse(checker.IsFlush(hand));
         }
-
-        [Test]
-        public void IsFlush_ReturnsFalse_FourCardsAreFromOtherSuits()
-        {
-            PokerHandsChecker checker = new PokerHandsChecker();
-            IHand hand = new Hand(new List<ICard>()
-            {
-                new Card(CardFace.Five, CardSuit.Clubs),
-                new Card(CardFace.Six, CardSuit.Clubs),
-                new Card(CardFace.Seven, CardSuit.Spades),
-                new Card(CardFace.Eight, CardSuit.Hearts),
-                new Card(CardFace.Nine, CardSuit.Diamonds)
-            });
-
-            Assert.IsFalse(checker.IsFlush(hand));
-        }
     }
 }

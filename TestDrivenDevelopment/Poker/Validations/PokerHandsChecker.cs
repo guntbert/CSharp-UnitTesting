@@ -80,7 +80,23 @@
 
         public bool IsOnePair(IHand hand)
         {
-            throw new NotImplementedException();
+            if(this.IsValidHand(hand))
+            {
+                HashSet<CardFace> set = new HashSet<CardFace>();
+                foreach (ICard card in hand.Cards)
+                {
+                    set.Add(card.Face);
+                }
+
+                if(set.Count == 4)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+
+            return false;
         }
 
         public bool IsHighCard(IHand hand)
