@@ -1,8 +1,10 @@
-﻿namespace Poker.Tests
+﻿namespace PokerLogic.Tests
 {
     using System.Collections.Generic;
     using System.Linq;
     using NUnit.Framework;
+    using Poker;
+    using Poker.Tests.PokerHandsCheckerTests;
 
     [TestFixture]
     public class HandTests
@@ -19,18 +21,9 @@
 
         public void ToString_ReturnStringOfAllCards_CreateHandFromCollectionOfCards()
         {
-            IList<ICard> cards = new List<ICard>()
-            {
-                new Card(CardFace.Eight, CardSuit.Spades),
-                new Card(CardFace.Nine, CardSuit.Spades),
-                new Card(CardFace.Seven, CardSuit.Hearts),
-                new Card(CardFace.King, CardSuit.Diamonds),
-                new Card(CardFace.Ace, CardSuit.Diamonds)
-            };
-
-            IHand hand = new Hand(cards);
+            IHand hand = PokerHandsCheckerSetup.highCard;
             string result = hand.ToString();
-            int expectedResult = cards.Sum(x => x.ToString().Length);
+            int expectedResult = hand.Cards.Sum(x => x.ToString().Length);
             Assert.AreEqual(expectedResult, result.Length);
         }
     }
