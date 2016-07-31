@@ -75,7 +75,25 @@
 
         public bool IsTwoPair(IHand hand)
         {
-            throw new NotImplementedException();
+            if (this.IsValidHand(hand))
+            {
+                HashSet<CardFace> set = new HashSet<CardFace>();
+                foreach (ICard card in hand.Cards)
+                {
+                    set.Add(card.Face);
+                }
+
+                int maxItemsInGroup = hand.Cards.GroupBy(x => x.Face).Where(g => g.Count() > 2).Count();
+
+                if (set.Count == 3 && maxItemsInGroup == 0)
+                {
+                    return true;
+                }
+
+                return false;
+            }
+
+            return false;
         }
 
         public bool IsOnePair(IHand hand)
