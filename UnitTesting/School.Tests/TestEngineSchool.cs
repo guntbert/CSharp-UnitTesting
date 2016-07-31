@@ -7,7 +7,7 @@
     public class TestEngineSchool
     {
         [TestMethod]
-        public void Constructor_CreateSchool_ShouldCreateSuccessfully()
+        public void Constructor_CreateSuccessfully_CreatingNewSchool()
         {
             Student firstStudent = new Student("First Student", 25843);
             Student secondStudent = new Student("Second Student", 35128);
@@ -19,7 +19,7 @@
         }
 
         [TestMethod]
-        public void Constructor_CreateSchoolFromArrayOfCourses_ShouldCreateSuccessfully()
+        public void Constructor_CreateSuccessfully_CreatingNewSchoolFromArrayOfCourses()
         {
             Student firstStudentCourseOne = new Student("First Student Course One", 25310);
             Student secondStudentCourseOne = new Student("Second Student Course One", 25311);
@@ -32,12 +32,12 @@
         }
 
         [TestMethod]
-        public void PropertyCourse_CreateSchoolFromArrayOfCourse_ShouldReturnCorrectNumberOfCourses()
+        public void PropertyCourse__ReturnCorrectNumberOfCourses_CreatingSchoolFromArrayOfCourses()
         {
-            Student firstStudentCourseOne = new Student("First Student Course One", 25310);
-            Student secondStudentCourseOne = new Student("Second Student Course One", 25311);
-            Student firstStudentCourseTwo = new Student("First Student Course Two", 25312);
-            Student secondStudentCourseTwo = new Student("Second Student Course Two", 25313);
+            Student firstStudentCourseOne = new Student("First Student Course One", 26430);
+            Student secondStudentCourseOne = new Student("Second Student Course One", 25431);
+            Student firstStudentCourseTwo = new Student("First Student Course Two", 25432);
+            Student secondStudentCourseTwo = new Student("Second Student Course Two", 25433);
             Course firstCourse = new Course(new[] { firstStudentCourseOne, secondStudentCourseOne });
             Course secondCourse = new Course(new[] { firstStudentCourseTwo, secondStudentCourseTwo });
             School school = new School(new[] { firstCourse, secondCourse });

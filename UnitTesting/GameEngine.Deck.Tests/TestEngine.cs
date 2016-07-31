@@ -1,53 +1,50 @@
 ﻿namespace GameEngine.Deck.Tests
 {
+    using NUnit.Framework;
     using Santase.Logic;
     using Santase.Logic.Cards;
-    using System;
-    using NUnit.Framework;
 
     [TestFixture]
     public class TestEngine
     {
-        const int totalCards = 24;
-        const int rounds = 3;
+        private const int TotalCards = 24;
+        private const int Rounds = 3;
 
         [Test]
-        public void StaticDeck_CreateNewDeck_ShouldHaveExactAmmountOfCards()
+        public void StaticConstructor_HaveExactAmmountOfCards_CreateANewDeck()
         {
             Deck deck = new Deck();
-            Assert.AreEqual(totalCards, deck.CardsLeft);
+            Assert.AreEqual(TotalCards, deck.CardsLeft);
         }
 
         [Test]
-        public void GetNextCard_EmptyDeck_ShouldThrowInternalGameException()
+        public void GetNextCard_ThrowInternalGameException_DeckIsEmpty()
         {
-            Assert.Throws<InternalGameException>(() => ThrowingInternalGameException());
+            Assert.Throws<InternalGameException>(() =>
+            {
+                Deck deck = new Deck();
+                int defaultCount = deck.CardsLeft;
+                for (int i = 0; i <= defaultCount; i++)
+                {
+                    deck.GetNextCard();
+                }
+            });
         }
 
-        public void ThrowingInternalGameException()
+        [Test]
+        public void GetNextCard_HaveExactNumberOfCards_CertainAmmountOfRoundsHavePassed()
         {
             Deck deck = new Deck();
-            int defaultCount = deck.CardsLeft;
-            for (int i = 0; i <= defaultCount; i++)
+            for (int i = 0; i < Rounds; i++)
             {
                 deck.GetNextCard();
             }
-        }
 
-        [Test]
-        public void GetNextCard_DeckStateAfterThreeRounds_ShouldHaveExactNumberOfCards()
-        {
-            Deck deck = new Deck();
-            for (int i = 0; i < rounds; i++)
-            {
-                deck.GetNextCard();
-            }
-
-            Assert.AreEqual(totalCards - rounds, deck.CardsLeft);
+            Assert.AreEqual(TotalCards - Rounds, deck.CardsLeft);
         }
 
         [Test, Combinatorial]
-        public void ChangeTrumpCard_ChangeWithDifferentCards_ShouldChangeTrumpCard([Values]CardSuit suit, [Values]CardType type)
+        public void ChangeTrumpCard_ShouldChangeTrumpCard_SettingNewTrumpCard([Values]CardSuit suit, [Values]CardType type)
         {
             Deck deck = new Deck();
             deck.ChangeTrumpCard(new Card(suit, type));

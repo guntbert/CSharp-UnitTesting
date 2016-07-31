@@ -8,7 +8,7 @@
     {
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
-        public void Constructor_UseArrayWithMoreThanMaxStudents_ShouldThrowAnInvalidOperationException()
+        public void Constructor_ThrowAnInvalidOperationException_UseArrayWithMoreThanMaxStudents()
         {
             Student[] students = new Student[31];
             for (int i = 0; i < 31; i++)
@@ -20,14 +20,14 @@
         }
 
         [TestMethod]
-        public void Constructor_UseSingleStudent_ShouldCreateCourseSuccessfully()
+        public void Constructor_CreateCourseSuccessfully_UseSingleStudent()
         {
             Course course = new Course(new Student("Test Student", 85217));
             Assert.IsInstanceOfType(course, typeof(Course));
         }
 
         [TestMethod]
-        public void PropertyStudents_CreateCourseFromArray_ShouldReturnCorrectStudentsCount()
+        public void PropertyStudents_ReturnCorrectStudentsCount_CreateCourseFromArray()
         {
             Student[] students = new Student[20];
             for (int i = 0; i < 20; i++)
@@ -41,7 +41,7 @@
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
-        public void AddStudent_AddStudentToCourseWithMaxStudents_ShouldThrowAnInvalidOperationException()
+        public void AddStudent_ThrowAnInvalidOperationException_AddStudentToCourseWithMaxStudents()
         {
             Student[] students = new Student[30];
             for (int i = 0; i < 30; i++)
@@ -55,7 +55,7 @@
         }
 
         [TestMethod]
-        public void AddStudent_AddsStudent_ShouldAddSuccessfully()
+        public void AddStudent_AddSuccessfully_AddStudent()
         {
             Course course = new Course();
             course.AddStudent(new Student("Test Student", 56123));
@@ -64,7 +64,7 @@
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
-        public void RemoveStudent_RemovesStudentThatDoesNotExist_ShouldThrowAnInvalidOperationException()
+        public void RemoveStudent_ThrowAnInvalidOperationException_RemoveStudentThatDoesNotExist()
         {
             Student[] students = new Student[]
             {
@@ -78,14 +78,14 @@
 
         [TestMethod]
         [ExpectedException(typeof(InvalidOperationException))]
-        public void RemoveStudent_RemoveStudentFromEmptyCourse_ShouldThrowAnInvalidOperationException()
+        public void RemoveStudent_ThrowAnInvalidOperationException_RemoveStudentFromEmptyCourse()
         {
             Course course = new Course();
             course.RemoveStudent(new Student("Test Student", 48711));
         }
 
         [TestMethod]
-        public void RemoveStudent_RemovesStudent_ShouldRemoveSuccessfully()
+        public void RemoveStudent_RemoveSuccessfully_RemoveStudent()
         {
             Student firstStudent = new Student("First Test Student", 78452);
             Student secondStudent = new Student("Second Test Student", 78453);
