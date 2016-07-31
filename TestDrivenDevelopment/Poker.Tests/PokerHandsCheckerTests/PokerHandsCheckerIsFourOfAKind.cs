@@ -1,58 +1,31 @@
 ﻿namespace Poker.Tests.PokerHandsCheckerTests
 {
-    using System.Collections.Generic;
     using NUnit.Framework;
 
     [TestFixture]
     internal class PokerHandsCheckerIsFourOfAKind
     {
         [Test]
-        public void IsFourOfAKind_ReturnsTrue_FourCardsHaveTheSameFace()
+        public void IsFourOfAKind_ReturnTrue_IsFourOfAKind()
         {
             PokerHandsChecker checker = new PokerHandsChecker();
-            IHand hand = new Hand(new List<ICard>()
-            {
-                new Card(CardFace.Eight, CardSuit.Hearts),
-                new Card(CardFace.Six, CardSuit.Diamonds),
-                new Card(CardFace.Eight, CardSuit.Spades),
-                new Card(CardFace.Eight, CardSuit.Diamonds),
-                new Card(CardFace.Eight, CardSuit.Clubs)
-            });
-
+            IHand hand = PokerHandsCheckerSetup.fourOfAKind;
             Assert.IsTrue(checker.IsFourOfAKind(hand));
         }
 
         [Test]
-        public void IsFourOfAKind_ReturnsFalse_IsTwoPairs()
+        public void IsFourOfAKind_ReturnFalse_IsTwoPair()
         {
             PokerHandsChecker checker = new PokerHandsChecker();
-
-            IHand hand = new Hand(new List<ICard>()
-            {
-                new Card(CardFace.Six, CardSuit.Hearts),
-                new Card(CardFace.Six, CardSuit.Diamonds),
-                new Card(CardFace.Nine, CardSuit.Spades),
-                new Card(CardFace.Eight, CardSuit.Diamonds),
-                new Card(CardFace.Eight, CardSuit.Clubs)
-            });
-
+            IHand hand = PokerHandsCheckerSetup.twoPairs;
             Assert.IsFalse(checker.IsFourOfAKind(hand));
         }
 
         [Test]
-        public void IsFourOfAKind_ReturnsFalse_IsThreeOfAKind()
+        public void IsFourOfAKind_ReturnFalse_IsThreeOfAKind()
         {
             PokerHandsChecker checker = new PokerHandsChecker();
-
-            IHand hand = new Hand(new List<ICard>()
-            {
-                new Card(CardFace.Six, CardSuit.Hearts),
-                new Card(CardFace.Six, CardSuit.Diamonds),
-                new Card(CardFace.Six, CardSuit.Spades),
-                new Card(CardFace.Eight, CardSuit.Diamonds),
-                new Card(CardFace.Eight, CardSuit.Clubs)
-            });
-
+            IHand hand = PokerHandsCheckerSetup.threeOfAKind;
             Assert.IsFalse(checker.IsFourOfAKind(hand));
         }
     }

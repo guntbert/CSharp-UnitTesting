@@ -1,72 +1,31 @@
 ﻿namespace Poker.Tests.PokerHandsCheckerTests
 {
-    using System.Collections.Generic;
     using NUnit.Framework;
     
     [TestFixture]
     internal class PokerHandsCheckerIsFlush
     {
         [Test]
-        public void IsFlush_ReturnsTrue_AllCardsAreFromTheSameSuit()
+        public void IsFlush_ReturnTrue_IsFlush()
         {
             PokerHandsChecker checker = new PokerHandsChecker();
-            IHand hand = new Hand(new List<ICard>()
-            {
-                new Card(CardFace.Five, CardSuit.Diamonds),
-                new Card(CardFace.Six, CardSuit.Diamonds),
-                new Card(CardFace.Seven, CardSuit.Diamonds),
-                new Card(CardFace.Eight, CardSuit.Diamonds),
-                new Card(CardFace.Nine, CardSuit.Diamonds)
-            });
-
+            IHand hand = PokerHandsCheckerSetup.flush;
             Assert.IsTrue(checker.IsFlush(hand));
         }
 
         [Test]
-        public void IsFlush_ReturnsFalse_OneCardIsFromOtherSuits()
+        public void IsFlush_ReturnFalse_IsStraightFlush()
         {
             PokerHandsChecker checker = new PokerHandsChecker();
-            IHand hand = new Hand(new List<ICard>()
-            {
-                new Card(CardFace.Five, CardSuit.Clubs),
-                new Card(CardFace.Six, CardSuit.Diamonds),
-                new Card(CardFace.Seven, CardSuit.Diamonds),
-                new Card(CardFace.Eight, CardSuit.Diamonds),
-                new Card(CardFace.Nine, CardSuit.Diamonds)
-            });
-
+            IHand hand = PokerHandsCheckerSetup.straightFlush;
             Assert.IsFalse(checker.IsFlush(hand));
         }
 
         [Test]
-        public void IsFlush_ReturnsFalse_TwoCardsAreFromOtherSuits()
+        public void IsFlush_ReturnFalse_IsStraight()
         {
             PokerHandsChecker checker = new PokerHandsChecker();
-            IHand hand = new Hand(new List<ICard>()
-            {
-                new Card(CardFace.Five, CardSuit.Clubs),
-                new Card(CardFace.Six, CardSuit.Clubs),
-                new Card(CardFace.Seven, CardSuit.Diamonds),
-                new Card(CardFace.Eight, CardSuit.Diamonds),
-                new Card(CardFace.Nine, CardSuit.Diamonds)
-            });
-
-            Assert.IsFalse(checker.IsFlush(hand));
-        }
-
-        [Test]
-        public void IsFlush_ReturnsFalse_ThreeCardsAreFromOtherSuits()
-        {
-            PokerHandsChecker checker = new PokerHandsChecker();
-            IHand hand = new Hand(new List<ICard>()
-            {
-                new Card(CardFace.Five, CardSuit.Clubs),
-                new Card(CardFace.Six, CardSuit.Clubs),
-                new Card(CardFace.Seven, CardSuit.Spades),
-                new Card(CardFace.Eight, CardSuit.Diamonds),
-                new Card(CardFace.Nine, CardSuit.Diamonds)
-            });
-
+            IHand hand = PokerHandsCheckerSetup.straight;
             Assert.IsFalse(checker.IsFlush(hand));
         }
     }

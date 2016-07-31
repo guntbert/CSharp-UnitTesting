@@ -84,9 +84,14 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="PokerHandsCheckerTests\PokerHandsCheckerIsFullHouse.cs" />
+    <Compile Include="PokerHandsCheckerTests\PokerHandsCheckerIsHighCard.cs" />
     <Compile Include="PokerHandsCheckerTests\PokerHandsCheckerIsOnePair.cs" />
+    <Compile Include="PokerHandsCheckerTests\PokerHandsCheckerIsStraight.cs" />
+    <Compile Include="PokerHandsCheckerTests\PokerHandsCheckerIsStraightFlush.cs" />
     <Compile Include="PokerHandsCheckerTests\PokerHandsCheckerIsThreeOfAKind.cs" />
     <Compile Include="PokerHandsCheckerTests\PokerHandsCheckerIsTwoPair.cs" />
+    <Compile Include="PokerHandsCheckerTests\PokerHandsCheckerSetup.cs" />
     <Compile Include="PokerLogicTests\CardTests.cs" />
     <Compile Include="PokerHandsCheckerTests\PokerHandsCheckerIsFlush.cs" />
     <Compile Include="PokerHandsCheckerTests\PokerHandsCheckerIsFourOfAKind.cs" />

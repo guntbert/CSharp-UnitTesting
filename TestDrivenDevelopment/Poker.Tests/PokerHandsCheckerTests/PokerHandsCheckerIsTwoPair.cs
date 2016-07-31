@@ -1,76 +1,39 @@
 ﻿namespace Poker.Tests.PokerHandsCheckerTests
 {
-    using System.Collections.Generic;
     using NUnit.Framework;
     
     [TestFixture]
     internal class PokerHandsCheckerIsTwoPair
     {
         [Test]
-        public void IsTwoPair_ReturnsTrue_TwoSetsOfOnePairsArePresent()
+        public void IsTwoPair_ReturnTrue_IsTwoPair()
         {
             PokerHandsChecker checker = new PokerHandsChecker();
-
-            IHand hand = new Hand(new List<ICard>()
-            {
-                new Card(CardFace.Six, CardSuit.Diamonds),
-                new Card(CardFace.Six, CardSuit.Clubs),
-                new Card(CardFace.Eight, CardSuit.Spades),
-                new Card(CardFace.Eight, CardSuit.Diamonds),
-                new Card(CardFace.Nine, CardSuit.Hearts)
-            });
-
+            IHand hand = PokerHandsCheckerSetup.twoPairs;
             Assert.IsTrue(checker.IsTwoPair(hand));
         }
 
         [Test]
-        public void IsTwoPair_ReturnsFalse_OnlyOnePairIsPresent()
+        public void IsTwoPair_ReturnFalse_IsOnePair()
         {
             PokerHandsChecker checker = new PokerHandsChecker();
-
-            IHand hand = new Hand(new List<ICard>()
-            {
-                new Card(CardFace.Six, CardSuit.Diamonds),
-                new Card(CardFace.Six, CardSuit.Clubs),
-                new Card(CardFace.Seven, CardSuit.Spades),
-                new Card(CardFace.Eight, CardSuit.Diamonds),
-                new Card(CardFace.Nine, CardSuit.Hearts)
-            });
-
+            IHand hand = PokerHandsCheckerSetup.onePair;
             Assert.IsFalse(checker.IsTwoPair(hand));
         }
 
         [Test]
-        public void IsTwoPair_ReturnsFalse_IsThreeOfAKind()
+        public void IsTwoPair_ReturnFalse_IsThreeOfAKind()
         {
             PokerHandsChecker checker = new PokerHandsChecker();
-
-            IHand hand = new Hand(new List<ICard>()
-            {
-                new Card(CardFace.Six, CardSuit.Diamonds),
-                new Card(CardFace.Six, CardSuit.Clubs),
-                new Card(CardFace.Six, CardSuit.Spades),
-                new Card(CardFace.Eight, CardSuit.Diamonds),
-                new Card(CardFace.Nine, CardSuit.Hearts)
-            });
-
+            IHand hand = PokerHandsCheckerSetup.threeOfAKind;
             Assert.IsFalse(checker.IsTwoPair(hand));
         }
 
         [Test]
-        public void IsTwoPair_ReturnsFalse_IsFourOfAKind()
+        public void IsTwoPair_ReturnFalse_IsFourOfAKind()
         {
             PokerHandsChecker checker = new PokerHandsChecker();
-
-            IHand hand = new Hand(new List<ICard>()
-            {
-                new Card(CardFace.Six, CardSuit.Diamonds),
-                new Card(CardFace.Six, CardSuit.Clubs),
-                new Card(CardFace.Six, CardSuit.Spades),
-                new Card(CardFace.Six, CardSuit.Hearts),
-                new Card(CardFace.Nine, CardSuit.Hearts)
-            });
-
+            IHand hand = PokerHandsCheckerSetup.fourOfAKind;
             Assert.IsFalse(checker.IsTwoPair(hand));
         }
     }

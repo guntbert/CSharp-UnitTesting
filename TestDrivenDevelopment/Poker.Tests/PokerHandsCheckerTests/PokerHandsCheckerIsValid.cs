@@ -7,87 +7,31 @@
     internal class PokerHandsCheckerIsValid
     {
         [Test]
-        public void IsValidHand_ReturnsTrue_AllCardsAreDifferent()
+        public void IsValidHand_ReturnTrue_IsHighCard()
         {
             PokerHandsChecker checker = new PokerHandsChecker();
-            IHand hand = new Hand(new List<ICard>()
-            {
-                new Card(CardFace.Five, CardSuit.Diamonds),
-                new Card(CardFace.Six, CardSuit.Diamonds),
-                new Card(CardFace.Seven, CardSuit.Diamonds),
-                new Card(CardFace.Eight, CardSuit.Diamonds),
-                new Card(CardFace.Nine, CardSuit.Diamonds)
-            });
+            IHand hand = PokerHandsCheckerSetup.highCard;
 
             Assert.IsTrue(checker.IsValidHand(hand));
         }
 
         [Test]
-        public void IsValidHand_ReturnsFalse_TwoCardsAreSame()
+        public void IsValidHand_ReturnFalse_ThereAreTwoSameCards()
         {
             PokerHandsChecker checker = new PokerHandsChecker();
             IHand hand = new Hand(new List<ICard>()
             {
-                new Card(CardFace.Five, CardSuit.Diamonds),
-                new Card(CardFace.Five, CardSuit.Diamonds),
+                new Card(CardFace.Six, CardSuit.Diamonds),
+                new Card(CardFace.Six, CardSuit.Diamonds),
                 new Card(CardFace.Seven, CardSuit.Diamonds),
                 new Card(CardFace.Eight, CardSuit.Diamonds),
-                new Card(CardFace.Nine, CardSuit.Diamonds)
+                new Card(CardFace.Nine, CardSuit.Diamonds),
             });
-
             Assert.IsFalse(checker.IsValidHand(hand));
         }
 
         [Test]
-        public void IsValidHand_ReturnsFalse_ThreeCardsAreSame()
-        {
-            PokerHandsChecker checker = new PokerHandsChecker();
-            IHand hand = new Hand(new List<ICard>()
-            {
-                new Card(CardFace.Five, CardSuit.Diamonds),
-                new Card(CardFace.Five, CardSuit.Diamonds),
-                new Card(CardFace.Five, CardSuit.Diamonds),
-                new Card(CardFace.Eight, CardSuit.Diamonds),
-                new Card(CardFace.Nine, CardSuit.Diamonds)
-            });
-
-            Assert.IsFalse(checker.IsValidHand(hand));
-        }
-
-        [Test]
-        public void IsValidHand_ReturnsFalse_FourCardsAreSame()
-        {
-            PokerHandsChecker checker = new PokerHandsChecker();
-            IHand hand = new Hand(new List<ICard>()
-            {
-                new Card(CardFace.Five, CardSuit.Diamonds),
-                new Card(CardFace.Five, CardSuit.Diamonds),
-                new Card(CardFace.Seven, CardSuit.Diamonds),
-                new Card(CardFace.Eight, CardSuit.Diamonds),
-                new Card(CardFace.Nine, CardSuit.Diamonds)
-            });
-
-            Assert.IsFalse(checker.IsValidHand(hand));
-        }
-
-        [Test]
-        public void IsValidHand_ReturnsFalse_FiveCardsAreSame()
-        {
-            PokerHandsChecker checker = new PokerHandsChecker();
-            IHand hand = new Hand(new List<ICard>()
-            {
-                new Card(CardFace.Five, CardSuit.Diamonds),
-                new Card(CardFace.Five, CardSuit.Diamonds),
-                new Card(CardFace.Five, CardSuit.Diamonds),
-                new Card(CardFace.Five, CardSuit.Diamonds),
-                new Card(CardFace.Five, CardSuit.Diamonds)
-            });
-
-            Assert.IsFalse(checker.IsValidHand(hand));
-        }
-
-        [Test]
-        public void IsValidHand_ReturnsFalse_ThereAreMoreThanFiveCardsInHand()
+        public void IsValidHand_ReturnFalse_ThereAreMoreThanFiveCardsInHand()
         {
             PokerHandsChecker checker = new PokerHandsChecker();
             IHand hand = new Hand(new List<ICard>()
@@ -104,7 +48,7 @@
         }
 
         [Test]
-        public void IsValidHand_ReturnsFalse_ThereAreLessThanFiveCardsInHand()
+        public void IsValidHand_ReturnFalse_ThereAreLessThanFiveCardsInHand()
         {
             PokerHandsChecker checker = new PokerHandsChecker();
             IHand hand = new Hand(new List<ICard>()
