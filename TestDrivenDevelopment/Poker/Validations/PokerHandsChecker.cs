@@ -30,17 +30,15 @@
         {
             if (this.IsValidHand(hand))
             {
-                if (hand.Cards.Select(x => x.Face).ToList().Distinct().ToList().Count() == 2)
-                {
-                    List<ICard> ordered = hand.Cards.OrderBy(x => x.Face).ToList();
-                    if (ordered[0].Face == ordered[3].Face ||
-                        ordered[1].Face == ordered[4].Face)
-                    {
-                        return true;
-                    }
+                int numberOfGroups = hand.Cards.GroupBy(x => x.Face).Count();
+                int maxItemsInGroup = hand.Cards.GroupBy(x => x.Face).Where(g => g.Count() > 3).Count();
 
-                    return false;
+                if (numberOfGroups == 2 && maxItemsInGroup == 1)
+                {
+                    return true;
                 }
+
+                return false;
             }
 
             return false;

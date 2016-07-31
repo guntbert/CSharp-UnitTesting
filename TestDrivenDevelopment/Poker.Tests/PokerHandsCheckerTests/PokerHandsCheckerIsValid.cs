@@ -1,10 +1,10 @@
-﻿namespace Poker.Tests.HandsChecker
+﻿namespace Poker.Tests.PokerHandsCheckerTests
 {
     using System.Collections.Generic;
     using NUnit.Framework;
 
     [TestFixture]
-    public class PokerHandsCheckerIsValid
+    internal class PokerHandsCheckerIsValid
     {
         [Test]
         public void IsValidHand_ReturnsTrue_AllCardsAreDifferent()

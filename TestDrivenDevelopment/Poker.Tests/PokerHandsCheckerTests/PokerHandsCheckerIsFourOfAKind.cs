@@ -1,10 +1,10 @@
-﻿namespace Poker.Tests.HandsChecker
+﻿namespace Poker.Tests.PokerHandsCheckerTests
 {
     using System.Collections.Generic;
     using NUnit.Framework;
 
     [TestFixture]
-    public class PokerHandsCheckerIsFourOfAKind
+    internal class PokerHandsCheckerIsFourOfAKind
     {
         [Test]
         public void IsFourOfAKind_ReturnsTrue_FourCardsHaveTheSameFace()
@@ -23,7 +23,24 @@
         }
 
         [Test]
-        public void IsFourOfAKind_ReturnFalse_LessThanFourCardsHaveTheSameFace()
+        public void IsFourOfAKind_ReturnsFalse_IsTwoPairs()
+        {
+            PokerHandsChecker checker = new PokerHandsChecker();
+
+            IHand hand = new Hand(new List<ICard>()
+            {
+                new Card(CardFace.Six, CardSuit.Hearts),
+                new Card(CardFace.Six, CardSuit.Diamonds),
+                new Card(CardFace.Nine, CardSuit.Spades),
+                new Card(CardFace.Eight, CardSuit.Diamonds),
+                new Card(CardFace.Eight, CardSuit.Clubs)
+            });
+
+            Assert.IsFalse(checker.IsFourOfAKind(hand));
+        }
+
+        [Test]
+        public void IsFourOfAKind_ReturnsFalse_IsThreeOfAKind()
         {
             PokerHandsChecker checker = new PokerHandsChecker();
 

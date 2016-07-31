@@ -1,10 +1,10 @@
-﻿namespace Poker.Tests.HandsChecker
+﻿namespace Poker.Tests.PokerHandsCheckerTests
 {
     using System.Collections.Generic;
     using NUnit.Framework;
     
     [TestFixture]
-    public class PokerHandsCheckerIsFlush
+    internal class PokerHandsCheckerIsFlush
     {
         [Test]
         public void IsFlush_ReturnsTrue_AllCardsAreFromTheSameSuit()
