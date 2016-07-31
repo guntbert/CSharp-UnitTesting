@@ -33,6 +33,7 @@
             return $"{this.Face} of {this.Suit}";
         }
 
+        // Overriden due to Distinct() method usage.
         public override bool Equals(object obj)
         {
             Card x = obj as Card;
@@ -44,6 +45,7 @@
             return false;
         }
 
+        // Overriden due to Distinct() method usage.
         public override int GetHashCode()
         {
             unchecked

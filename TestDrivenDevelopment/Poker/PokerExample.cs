@@ -21,11 +21,12 @@
             Console.WriteLine(hand);
 
             IPokerHandsChecker checker = new PokerHandsChecker();
+
             Console.WriteLine(checker.IsValidHand(hand));
             Console.WriteLine(checker.IsFlush(hand));
             Console.WriteLine(checker.IsFourOfAKind(hand));
-            //Console.WriteLine(checker.IsOnePair(hand));
-            //Console.WriteLine(checker.IsTwoPair(hand));
+            Console.WriteLine(checker.IsOnePair(hand));
+            Console.WriteLine(checker.IsTwoPair(hand));
         }
     }
 }

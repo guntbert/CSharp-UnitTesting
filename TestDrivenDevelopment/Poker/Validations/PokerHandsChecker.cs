@@ -6,10 +6,12 @@
 
     public class PokerHandsChecker : IPokerHandsChecker
     {
+        // Additional XML documentation will be created later. 
+
         /// <summary>
         /// Determines whether the selected IHand object is valid. The method checks ammount of Card object in IHand object and determines if equal objects are present.
         /// </summary>
-        /// <param name="hand">Specified IHand object.</param>
+        /// <param name="hand">The specified IHand object.</param>
         /// <returns>
         ///   <c>true</c> if the IHand has no duplicate Card entries and Card count in hand is exactly 5; otherwise, <c>false</c>.
         /// </returns>
@@ -31,7 +33,7 @@
         /// <summary>
         /// Determines whether the specified IHand object is Straight Flush. Method implements IsFlush() and IsStraight() logic to assure correct representation of results.
         /// </summary>
-        /// <param name="hand">The specified hand.</param>
+        /// <param name="hand">The specified IHand object.</param>
         /// <returns>
         ///   <c>true</c> if the object is straight flush only; otherwise, <c>false</c>.
         /// </returns>
@@ -67,6 +69,13 @@
             return false;
         }
 
+        /// <summary>
+        /// Determines whether the specified IHand object is is four of a kind hand. The method uses GroupBy() filtering to check the duplicated values.
+        /// </summary>
+        /// <param name="hand">The specified IHand object.</param>
+        /// <returns>
+        ///   <c>true</c> if [is four of a kind] [the specified hand]; otherwise, <c>false</c>.
+        /// </returns>
         public bool IsFourOfAKind(IHand hand)
         {
             if (this.IsValidHand(hand))

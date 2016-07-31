@@ -3,7 +3,6 @@
     using System;
     using NUnit.Framework;
     using Poker;
-    using Poker.Tests.PokerHandsCheckerTests;
 
     [TestFixture]
     public class CardTests
